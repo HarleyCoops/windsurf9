@@ -1,0 +1,31 @@
+{
+  "name": "Code Style Rules",
+  "description": "Rules for maintaining consistent code style",
+  "activation": "glob",
+  "pattern": "**/*.{js,jsx,ts,tsx}",
+  "scope": "project",
+  "rules": [
+    {
+      "name": "prefer-const",
+      "description": "Prefer const over let for variables that are never reassigned",
+      "pattern": "\\blet\\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\\s*=(?![^=]=[^=])",
+      "message": "Consider using 'const' instead of 'let' for variables that are never reassigned.",
+      "severity": "low"
+    },
+    {
+      "name": "no-console",
+      "description": "Avoid console.log statements in production code",
+      "pattern": "console\\.(log|debug|info|warn|error)\\(",
+      "message": "Avoid using console statements in production code. Consider using a proper logging library.",
+      "severity": "medium"
+    },
+    {
+      "name": "max-line-length",
+      "description": "Enforce maximum line length",
+      "pattern": ".{100,}",
+      "message": "Line exceeds the maximum length of 100 characters. Consider breaking it into multiple lines.",
+      "severity": "low"
+    }
+  ]
+}
+

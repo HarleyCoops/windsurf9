@@ -1,0 +1,52 @@
+{
+  "mcp_servers": [
+    {
+      "name": "web-search",
+      "description": "Enables web search capabilities",
+      "url": "https://example.com/mcp/web-search",
+      "enabled": true,
+      "auth_type": "bearer"
+    },
+    {
+      "name": "code-analysis",
+      "description": "Advanced code analysis and refactoring tools",
+      "url": "https://example.com/mcp/code-analysis",
+      "enabled": true,
+      "auth_type": "bearer"
+    },
+    {
+      "name": "knowledge-base",
+      "description": "Connect to company knowledge base",
+      "url": "https://example.com/mcp/knowledge-base",
+      "enabled": true,
+      "auth_type": "bearer",
+      "resources": [
+        {
+          "name": "company-docs",
+          "type": "google-drive",
+          "path": "shared-drives/engineering"
+        },
+        {
+          "name": "api-docs",
+          "type": "confluence",
+          "path": "spaces/API"
+        }
+      ]
+    },
+    {
+      "name": "image-generation",
+      "description": "Generate images from text descriptions",
+      "url": "https://example.com/mcp/image-gen",
+      "enabled": false,
+      "auth_type": "api_key"
+    }
+  ],
+  "default_model": "SWE-1",
+  "model_preferences": {
+    "code_completion": "SWE-1-mini",
+    "code_generation": "SWE-1",
+    "code_explanation": "SWE-1-lite",
+    "planning": "SWE-1"
+  }
+}
+

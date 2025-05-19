@@ -1,0 +1,30 @@
+{
+  "name": "Security Rules",
+  "description": "Rules for enhancing security practices in the codebase",
+  "activation": "always",
+  "scope": "global",
+  "rules": [
+    {
+      "name": "prevent-secrets",
+      "description": "Prevent committing secrets and credentials",
+      "pattern": "(?i)(api[_-]?key|token|secret|password|credential)s?['\"]?\\s*[:=]\\s*['\"]?[a-zA-Z0-9_\\-\\.]{8,}['\"]?",
+      "message": "Potential secret or credential detected. Consider using environment variables or a secure vault.",
+      "severity": "high"
+    },
+    {
+      "name": "sql-injection",
+      "description": "Detect potential SQL injection vulnerabilities",
+      "pattern": "(?i)\\b(execute|exec)\\s*\\(.*\\$\\{.*\\}.*\\)|(?i)\\bquery\\s*\\(.*\\+.*\\)",
+      "message": "Potential SQL injection vulnerability. Use parameterized queries instead.",
+      "severity": "critical"
+    },
+    {
+      "name": "xss-prevention",
+      "description": "Enforce XSS prevention practices",
+      "pattern": "(?i)innerHTML\\s*=|(?i)document\\.write\\s*\\(",
+      "message": "Potential XSS vulnerability. Consider using safer alternatives like textContent or createElement.",
+      "severity": "high"
+    }
+  ]
+}
+

@@ -1,0 +1,30 @@
+{
+  "name": "Performance Rules",
+  "description": "Rules for optimizing application performance",
+  "activation": "model_decision",
+  "scope": "team",
+  "rules": [
+    {
+      "name": "avoid-nested-loops",
+      "description": "Flag potentially inefficient nested loops",
+      "pattern": "for\\s*\\([^\\)]*\\)\\s*\\{[^\\}]*for\\s*\\([^\\)]*\\)",
+      "message": "Nested loops detected. Consider optimizing to reduce time complexity.",
+      "severity": "medium"
+    },
+    {
+      "name": "large-array-operations",
+      "description": "Identify potentially expensive array operations",
+      "pattern": "\\.map\\(.*\\.filter\\(|\\.filter\\(.*\\.map\\(",
+      "message": "Chained array operations may be inefficient. Consider combining operations or using a more efficient approach.",
+      "severity": "medium"
+    },
+    {
+      "name": "react-memo",
+      "description": "Suggest React.memo for functional components",
+      "pattern": "function\\s+([A-Z][a-zA-Z0-9]*)\\s*\\(|const\\s+([A-Z][a-zA-Z0-9]*)\\s*=\\s*\\([^\\)]*\\)\\s*=>",
+      "message": "Consider using React.memo for functional components to prevent unnecessary re-renders.",
+      "severity": "low"
+    }
+  ]
+}
+
